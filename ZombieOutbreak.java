@@ -212,7 +212,7 @@ public class ZombieOutbreak {
 
     // MEDIC-ONLY: only reachable if role == Medic and they actually picked up the syringe
     public static void survivorScenario(Scanner input, int chosenRole, String lootChoice) {
-        if (chosenRole == 3 || !lootChoice.equals("5")) {
+        if (chosenRole != 3 || !lootChoice.equals("4")) {
             return; // Only proceed if the player is a Medic and has the Mystery Syringe
         }
         System.out.println("---------------------------------------");
@@ -234,7 +234,8 @@ public class ZombieOutbreak {
         System.out.println("---------------------------------------");
     }
 
-    public static void bossFight(Scanner input, int role, int hp, String potionClass) {
+    // Updated bossFight: success depends ONLY on HP thresholds (hp cases) — role/item checks removed
+    public static void bossFight(Scanner input, int role, int hp) {
         System.out.println("---------------------------------------");
         System.out.println("\nYou have reached the base of the Zombie King, the final boss.");
         System.out.println("Preparing for the final battle...");
@@ -243,8 +244,8 @@ public class ZombieOutbreak {
         System.out.println("Your party is in a predicament.");
 
         System.out.println("---------------------------------------");
-        System.out.println("\nDifferent materials has appeared in front of you, capable of defeating the Zombie King.");
-        System.out.println("Would you like to attempt to use them? (yes/no): ");
+        System.out.println("\nDifferent materials have appeared in front of you, each requires a certain HP level to be effective.");
+        System.out.print("Would you like to attempt to use them? (yes/no): ");
         String attemptMaterial = input.next();
 
         if (attemptMaterial.equalsIgnoreCase("no")) {
@@ -268,72 +269,75 @@ public class ZombieOutbreak {
 
         System.out.println("---------------------------------------");
         System.out.println("You have chosen to attempt to use the materials.");
-        System.out.println("Choose one materials you would like to use:");
-        System.out.println("1. Legendary Sword");
-        System.out.println("2. Bullet");
-        System.out.println("3. Poisoned Syringe");
-        System.out.println("4. Biohazard Device");
-        System.out.println("5. Poisonous Smoke");
+        System.out.println("Choose one material you would like to use:");
+        System.out.println("1. Legendary Sword   (requires HP >= 100)");
+        System.out.println("2. Bullet            (requires HP >= 80)");
+        System.out.println("3. Poisoned Syringe  (requires HP >= 60)");
+        System.out.println("4. Biohazard Device  (requires HP >= 90)");
+        System.out.println("5. Poisonous Smoke   (requires HP >= 70)");
         System.out.print("Enter your choice (1-5): ");
         String materialChoice = input.next();
 
+        boolean success = false;
+        String successMessage = "";
+
         switch (materialChoice) {
             case "1":
-                System.out.println("---------------------------------------");
-                System.out.println("You have chosen the Legendary Sword.");
-                System.out.println("To wield the legendary sword, you must meet the following conditions:");
-                System.out.println("1. You must be a Warrior class.");
-                System.out.println("2. You must have at least 80 hp.");
-                System.out.println("3. You must have an additional protection.");
-                System.out.println("Would you like to attempt to wield the Legendary Sword? (yes/no): ");
-                String attemptSword = input.next();
-
-                if (attemptSword.equalsIgnoreCase("yes")) {
-                    if (role == 1 && potionClass == "C") {
-                        System.out.println("---------------------------------------");
-                        System.out.println("You have successfully wielded the Legendary Sword!");
-                        System.out.println("The Legendary Sword has defeated the Zombie King!");
-                        System.out.println("Congratulations! You have saved humanity!");
-                    } else {
-                        System.out.println("---------------------------------------");
-                        System.out.println("You do not meet the conditions to wield the Legendary Sword.");
-                        System.out.println("The Zombie King has defeated you and your party.");
-                        System.out.println("Once again, humanity has lost its hope.");
-                    }
+                if (hp >= 100) {
+                    success = true;
+                    successMessage = "You have successfully wielded the Legendary Sword! The Legendary Sword has defeated the Zombie King!";
                 } else {
-                    System.out.println("---------------------------------------");
-                    System.out.println("You have chosen not to attempt to wield the Legendary Sword.");
-                    System.out.println("The Zombie King has defeated you and your party.");
-                    System.out.println("Once again, humanity has lost its hope.");
+                    success = false;
                 }
                 break;
             case "2":
-                System.out.println("---------------------------------------");
-                System.out.println("You have chosen the Bullet.");
-               
+                if (hp >= 80) {
+                    success = true;
+                    successMessage = "You fired the powerful Bullet and it struck true — the Zombie King has been defeated!";
+                } else {
+                    success = false;
+                }
                 break;
             case "3":
-                System.out.println("---------------------------------------");
-                System.out.println("You have chosen the Poisoned Syringe.");
-                System.out.println("The Poisoned Syringe has defeated the Zombie King!");
-                System.out.println("Congratulations! You have saved humanity!");
+                if (hp >= 60) {
+                    success = true;
+                    successMessage = "The Poisoned Syringe worked as intended and the Zombie King has been defeated!";
+                } else {
+                    success = false;
+                }
                 break;
             case "4":
-                System.out.println("---------------------------------------");
-                System.out.println("You have chosen the Biohazard Device.");
-                System.out.println("The Biohazard Device has defeated the Zombie King!");
-                System.out.println("Congratulations! You have saved humanity!");
+                if (hp >= 90) {
+                    success = true;
+                    successMessage = "The Biohazard Device activated perfectly and the Zombie King has been defeated!";
+                } else {
+                    success = false;
+                }
                 break;
             case "5":
-                System.out.println("---------------------------------------");
-                System.out.println("You have chosen the Poisonous Smoke.");
-                System.out.println("The Poisonous Smoke has defeated the Zombie King!");
-                System.out.println("Congratulations! You have saved humanity!");
+                if (hp >= 70) {
+                    success = true;
+                    successMessage = "You released the Poisonous Smoke and the Zombie King was overwhelmed — defeated!";
+                } else {
+                    success = false;
+                }
                 break;
             default:
                 System.out.println("---------------------------------------");
                 System.out.println("Invalid choice. The Zombie King has defeated you and your party.");
                 System.out.println("Once again, humanity has lost its hope.");
+                return;
+        }
+
+        System.out.println("---------------------------------------");
+        if (success) {
+            System.out.println(successMessage);
+            System.out.println("\nCongratulations! You have saved humanity!");
+        } else {
+            System.out.println("You do not have sufficient HP to use that material effectively.");
+            System.out.println("The Zombie King has defeated you and your party.");
+            System.out.println("Once again, humanity has lost its hope.");
+            System.out.println("Game Over.");
         }
     }
 
@@ -348,7 +352,8 @@ public class ZombieOutbreak {
         if (eligible) {
             int playerRole = role(input);
             int playerHP = firstAttack(input);
-            bossFight(input, playerRole, playerHP, potionClass);
+            // Note: lootExploration and survivorScenario are available but optional; boss fight now depends only on HP
+            bossFight(input, playerRole, playerHP);
         }
 
         System.out.println("---------------------------------------");
