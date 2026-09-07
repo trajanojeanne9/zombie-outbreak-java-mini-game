@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class ZombieOutbreak {
 
     static String potionClass = "";
-
+    
+    //////INTRODUCTION//////
     public static void title() {
         System.out.println("==================================");
         System.out.println("         ZOMBIE OUTBREAK          ");
@@ -16,6 +17,8 @@ public class ZombieOutbreak {
         System.out.println("---------------------------------------");
     }
 
+    
+    ///IDENTIFICATION OF THE PLAYER///
     public static boolean identification(Scanner input) {
         System.out.println(" ");
         System.out.print("Enter your name: ");
@@ -27,7 +30,7 @@ public class ZombieOutbreak {
 
         System.out.print("Enter your age: ");
         int age = input.nextInt();
-        input.nextLine(); // consume leftover newline after nextInt()
+        input.nextLine();
 
         if (age < 0) {
             System.out.println("Age cannot be negative. Please enter a valid age.");
@@ -45,6 +48,8 @@ public class ZombieOutbreak {
         }
     }
 
+    
+    /////////!!!ROLES!!!////////
     public static int role(Scanner input) {
         System.out.println("---------------------------------------");
         System.out.println("\nChoose a role:");
@@ -84,15 +89,18 @@ public class ZombieOutbreak {
         return chosenRole;
     }
 
+
+
+    ////FIRST SCENARIO ATTACK RAWRR!!!!/////
     public static int firstAttack(Scanner input) {
         System.out.println("---------------------------------------");
         System.out.println("\nA zombie appeared out of nowhere and attacked your party!");
         System.out.println("You had been bitten. HP down to 20.");
 
         int hp = 20;
-
+        /////POTIONSSSSSS////
         System.out.println("---------------------------------------");
-        System.out.print("Would you like to use a health potion? (yes/no): ");
+        System.out.print("Would you like to use a health potion? Warning! the potions are aligned with your role! MAKE A GOOD GUESS (yes/no): ");
         String potion = input.next();
         if (potion.trim().isEmpty()) {
             System.out.println("Input cannot be empty. Please enter 'yes' or 'no'.");
@@ -160,8 +168,9 @@ public class ZombieOutbreak {
 
         return hp;
     }
+    
 
-     // PART 2: explore abandoned building, open loot box, pick ONE item
+    ///// PART 2: EXPLORING ABANDONED BUILDING/////
     public static void lootExploration(Scanner input) {
         System.out.println("---------------------------------------");
         System.out.println("\nYour party moves through the ruined streets and comes across an abandoned building.");
@@ -210,7 +219,9 @@ public class ZombieOutbreak {
         System.out.println("---------------------------------------");
     }
 
-    // MEDIC-ONLY: only reachable if role == Medic and they actually picked up the syringe
+    
+
+    //// MEDIC-ONLY SCENEEEEE ORRR IFF CHOICE SYRINGEEE////
     public static void survivorScenario(Scanner input, int chosenRole, String lootChoice) {
         if (chosenRole != 3 || !lootChoice.equals("4")) {
             return; // Only proceed if the player is a Medic and has the Mystery Syringe
@@ -234,7 +245,10 @@ public class ZombieOutbreak {
         System.out.println("---------------------------------------");
     }
 
-    // Updated bossFight: success depends ONLY on HP thresholds (hp cases) — role/item checks removed
+
+
+    
+    /////////////BOOSS FIGHTTTTT!!!!!!!///////////
     public static void bossFight(Scanner input, int role, int hp) {
         System.out.println("---------------------------------------");
         System.out.println("\nYou have reached the base of the Zombie King, the final boss.");
@@ -341,6 +355,11 @@ public class ZombieOutbreak {
         }
     }
 
+
+
+
+
+    /////MAIN/////
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -352,7 +371,7 @@ public class ZombieOutbreak {
         if (eligible) {
             int playerRole = role(input);
             int playerHP = firstAttack(input);
-            // Note: lootExploration and survivorScenario are available but optional; boss fight now depends only on HP
+           //the medical is by conditional on up
             bossFight(input, playerRole, playerHP);
         }
 
