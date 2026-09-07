@@ -139,7 +139,7 @@ public class ZombieTerminal_1 {
         System.out.println("---------------------------------------");
         System.out.println("Current HP: " + hp);
         System.out.println("---------------------------------------");
-        
+
         return hp;
     }
 
