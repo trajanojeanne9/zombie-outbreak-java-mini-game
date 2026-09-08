@@ -141,9 +141,9 @@ public class ZombieOutbreak_2 {
             System.out.println("4. Black Potion (+30 HP)");  // cowboy
             System.out.println("5. White Potion (+60 HP)");  // scientist
             System.out.print("\nEnter your choice (1-5): ");
-            int potionChoice = input.nextInt();
+            potionClass = input.nextInt();
 
-            switch (potionChoice) {
+            switch (potionClass) {
                 case 1:
                     hp += 80;
                     potionClass = 1;
@@ -602,7 +602,7 @@ public class ZombieOutbreak_2 {
 
         if (!name.isEmpty()) {
             int playerRole = role(input);
-            int potionClass = firstAttack(input);
+            firstAttack(input);
             int lootChoice = lootExploration(input);
             String syringeChoice = survivorScenario(input, playerRole, potionClass, lootChoice);
             bossFight(input, playerRole, potionClass, lootChoice, syringeChoice);
