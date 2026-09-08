@@ -17,7 +17,7 @@ public class ZombieOutbreak_2 {
         System.out.println(" ");
         System.out.println("-------------------------------------------------");
     }
-
+    //PLAYER INFOOO!!
     public static String identification(Scanner input) {
         System.out.println(" ");
         System.out.print("Enter your name: ");
@@ -57,6 +57,7 @@ public class ZombieOutbreak_2 {
         System.out.println(" ");
         System.out.println(" ");
 
+        //THE ROLE CHOICES!!!
         System.out.println("=================================================");
         System.out.println("                CHOOSE YOUR ROLE                ");
         System.out.println("=================================================");
@@ -122,6 +123,7 @@ public class ZombieOutbreak_2 {
         return roleChoice;
     }
 
+    //OHH NOO THE FIRST ATTACK!!
     public static int firstAttack(Scanner input) {
 
         System.out.println("-------------------------------------------------");
@@ -144,6 +146,7 @@ public class ZombieOutbreak_2 {
             System.out.println("Input cannot be empty. Please enter 'yes' or 'no'.");
         }
 
+        //POTION CHOICES IF YESSS
         if (potionUse.equalsIgnoreCase("yes")) {
 
             System.out.println(" ");
@@ -235,6 +238,7 @@ public class ZombieOutbreak_2 {
         System.out.println("Would you like to continue to the next stage? (yes/no): ");
         String continueGame = input.next();
 
+        //IF NO POTION :(
         if (continueGame.equalsIgnoreCase("no")) {
             System.out.println("You have chosen to exit the simulation. Game Over.");
             System.exit(0);
@@ -243,7 +247,7 @@ public class ZombieOutbreak_2 {
         return hp;
     }
 
-    // PART 2: explore abandoned building, open loot box!!!!!
+    // PART 2 EXPLORE THE ABANDONED BUILDING WOAHH LOOT BOX!!!!!
     public static int lootExploration(Scanner input) {
 
         System.out.println(" ");
@@ -266,11 +270,13 @@ public class ZombieOutbreak_2 {
         System.out.println(" ");
         System.out.println(" ");
 
+        //OPENING OMG....
         System.out.print("Would you like to open the loot box? (yes/no): ");
         String openLoot = input.next();
 
         int lootChoice = 0;
 
+        //CHOICES IF YES!!!
         if (openLoot.equalsIgnoreCase("yes")) {
 
             System.out.println(" ");
@@ -299,6 +305,7 @@ public class ZombieOutbreak_2 {
                     System.out.println("=================================================");
                     System.out.println("          You have chosen Metal Scraps!         ");
                     System.out.println("=================================================");
+                    System.out.println(" ");
                     break;
 
                 case 2:
@@ -306,6 +313,7 @@ public class ZombieOutbreak_2 {
                     System.out.println("=================================================");
                     System.out.println("              You have chosen Mask!             ");
                     System.out.println("=================================================");
+                    System.out.println(" ");
                     break;
 
                 case 3:
@@ -313,6 +321,7 @@ public class ZombieOutbreak_2 {
                     System.out.println("=================================================");
                     System.out.println("        You have chosen Mystery Syringe!        ");
                     System.out.println("=================================================");
+                    System.out.println(" ");
                     break;
 
                 case 4:
@@ -320,6 +329,7 @@ public class ZombieOutbreak_2 {
                     System.out.println("=================================================");
                     System.out.println("           You have chosen Gun Powder!           ");
                     System.out.println("=================================================");
+                    System.out.println(" ");
                     break;
 
                 case 5:
@@ -327,6 +337,7 @@ public class ZombieOutbreak_2 {
                     System.out.println("=================================================");
                     System.out.println("             You have chosen Talisman!           ");
                     System.out.println("=================================================");
+                    System.out.println(" ");
                     break;
 
                 default:
@@ -336,6 +347,7 @@ public class ZombieOutbreak_2 {
                     System.out.println("Invalid choice. You leave the loot box untouched.");
             }
 
+        // AWWW didnt open ;(((
         } else {
 
             System.out.println(" ");
@@ -354,37 +366,37 @@ public class ZombieOutbreak_2 {
         String syringeChoice = "";
 
         if (roleChoice == 3 && lootChoice == 3) {
-
+            
+            System.out.println(" ");
             System.out.println("-------------------------------------------------");
+            System.out.println(" ");
             System.out.println("\nAs you continue forward, you hear screaming. A group \nof survivors is trapped and begging for help.");
             System.out.println("You still have the Mystery Syringe. It might be able \nto help them.");
             System.out.println(" ");
             System.out.println("-------------------------------------------------");
-
-            System.out.println(
-                    "Would you like to give them the syringe, or save it for\n the fight ahead? (give/save): ");
+            System.out.println(" ");
+            System.out.println("Would you like to give them the syringe, or save it for\n the fight ahead? (give/save): ");
 
             syringeChoice = input.next();
 
             if (syringeChoice.equalsIgnoreCase("give")) {
-
+    
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
-
                 System.out.println("You hand over the Mystery Syringe. The survivors are \nsaved and thank you for your kindness.");
-
                 System.out.println("However, you no longer have the syringe for what lies \nahead.");
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
 
             } else {
 
                 System.out.println("-------------------------------------------------");
-
+                System.out.println(" ");
                 System.out.println("  You decide to save the syringe. The survivors' \n  cries fade behind you as you press on.");
-
-                System.out.println("\nYou continue forward, but you hear distant screams. You cannot help them as you have no means to do so.");
-
+                System.out.println("\nYou continue forward, but you hear distant screams. \nYou cannot help them as you have no means to do so.");
+                System.out.println(" ");
                 System.out.println("You press on, hoping to find a way to save humanity.");
-
+                System.out.println(" ");
                 System.out.println("-------------------------------------------------");
             }
         }
@@ -392,61 +404,49 @@ public class ZombieOutbreak_2 {
         return syringeChoice;
     }
 
+    //!!!!!!!!!!!!!!!BOSSSS FIGHTTTT!!!!!!!!!!!!!!!!!!!
     public static void bossFight(Scanner input, int role, int potionClass, int lootChoice, String syringeChoice) {
-
+        System.out.println(" ");
         System.out.println("-------------------------------------------------");
-
         System.out.println("\nYou have reached the base of the Zombie King, \n               the final boss.");
-
         System.out.println(" ");
-
         System.out.println("      Preparing for the final battle...");
-
         System.out.println(" ");
         System.out.println("-------------------------------------------------");
-
         System.out.println(" ");
-
         System.out.println("Your attacks seem to have no effect on the Zombie\n                      King.");
-
         System.out.println("Your party is in a predicament...");
-
         System.out.println(" ");
         System.out.println("-------------------------------------------------");
-
         System.out.println("\n  Different materials has appeared in front of\n   you, capable of defeating the Zombie King.");
-
         System.out.println(" ");
-
         System.out.println("Would you like to attempt to use them? (yes/no): ");
 
         String attemptMaterial = input.next();
 
         if (attemptMaterial.equalsIgnoreCase("no")) {
-
+            
+            System.out.println(" ");
             System.out.println("-------------------------------------------------");
             System.out.println(" ");
             System.out.println("You have chosen not to attempt to use the materials.");
-
+            System.out.println(" ");
             System.out.println("The Zombie King has defeated you and your party.");
             System.out.println(" ");
-
             System.out.println("Once again, humanity has lost its hope...");
-
+            System.out.println(" ");
             System.out.println("-------------------------------------------------");
-            System.out.println("Game Over.");
+            System.out.println("               [[ Game Over. ]]");
 
             return;
         }
 
         if (!attemptMaterial.equalsIgnoreCase("yes")) {
 
+            System.out.println(" ");
             System.out.println("-------------------------------------------------");
-
             System.out.println("Invalid input. The Zombie King has defeated you\n            and your party.");
-
             System.out.println("Once again, humanity has lost its hope...");
-
             System.out.println("-------------------------------------------------");
             System.out.println("Game Over.");
 
@@ -454,13 +454,11 @@ public class ZombieOutbreak_2 {
         }
 
         if (attemptMaterial.equalsIgnoreCase("yes")) {
-
+            
+            System.out.println(" ");
             System.out.println("-------------------------------------------------");
-
             System.out.println("You have chosen to attempt to use the materials.");
-
             System.out.println("Choose one material you would like to use:");
-
             System.out.println(" ");
 
             System.out.println("1. Excalibur");
@@ -476,9 +474,8 @@ public class ZombieOutbreak_2 {
 
             switch (materialChoice) {
 
-                // =================================================
+
                 // EXCALIBUR
-                // =================================================
                 case 1:
 
                     System.out.println(" ");
@@ -486,20 +483,15 @@ public class ZombieOutbreak_2 {
                     System.out.println("         You have chosen the Excalibur!");
                     System.out.println("=================================================");
                     System.out.println(" ");
-
-                    System.out.println(
-                            "To wield the Excalibur, you must meet the following\nconditions:");
-
+                    System.out.println("To wield the Excalibur, you must meet the following\nconditions:");
                     System.out.println(" ");
-
                     System.out.println("1. You must be a Warrior class.");
                     System.out.println("2. You must have 70 hp.");
                     System.out.println("3. You must have the Talisman.");
-
                     System.out.println(" ");
+                    System.out.println("-------------------------------------------------");
 
-                    System.out.println(
-                            "Would you like to attempt to wield the Excalibur? (yes/no): ");
+                    System.out.println("Would you like to attempt to wield the Excalibur? (yes/no): ");
 
                     String attemptSword = input.next();
 
@@ -509,26 +501,24 @@ public class ZombieOutbreak_2 {
 
                             System.out.println(" ");
                             System.out.println("-------------------------------------------------");
-
                             System.out.println("You have successfully wielded the Excalibur!");
                             System.out.println(" ");
                             System.out.println("The Excalibur has defeated the Zombie King!");
                             System.out.println(" ");
                             System.out.println("Congratulations! You have saved humanity!");
                             System.out.println(" ");
+                            System.out.println("-------------------------------------------------");
 
                         } else {
 
+                            System.out.println(" ");
                             System.out.println("-------------------------------------------------");
                             System.out.println(" ");
-
                             System.out.println("You do not meet the conditions to wield the \nExcalibur.");
-
                             System.out.println("The Zombie King has defeated you and your party.");
-
                             System.out.println("Once again, humanity has lost its hope...");
-
                             System.out.println(" ");
+                            System.out.println("-------------------------------------------------");
                         }
 
                     } else {
@@ -540,13 +530,12 @@ public class ZombieOutbreak_2 {
                         System.out.println(" ");
                         System.out.println("Once again, humanity has lost its hope....");
                         System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
                     }
 
                     break;
 
-                // =================================================
                 // ANNIHILATOR
-                // =================================================
                 case 2:
 
                     System.out.println(" ");
@@ -554,7 +543,6 @@ public class ZombieOutbreak_2 {
                     System.out.println("       You have chosen the Annihilator!");
                     System.out.println("=================================================");
                     System.out.println(" ");
-
                     System.out.println("To use the Annihilator, you must meet the \nfollowing conditions:");
                     System.out.println(" ");
                     System.out.println("1. You must be a Cowboy class.");
@@ -577,6 +565,7 @@ public class ZombieOutbreak_2 {
                             System.out.println(" ");
                             System.out.println("Congratulations! You have saved humanity!");
                             System.out.println(" ");
+                            System.out.println("-------------------------------------------------");
 
                         } else {
 
@@ -588,6 +577,7 @@ public class ZombieOutbreak_2 {
                             System.out.println(" ");
                             System.out.println("Once again, humanity has lost its hope.....");
                             System.out.println(" ");
+                            System.out.println("-------------------------------------------------");
                         }
 
                     } else {
@@ -600,13 +590,13 @@ public class ZombieOutbreak_2 {
                         System.out.println(" ");
                         System.out.println("Once again, humanity has lost its hope...");
                         System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
                     }
 
                     break;
 
-                // =================================================
+             
                 // TOXIC DEVICE
-                // =================================================
                 case 3:
 
                     System.out.println(" ");
@@ -636,6 +626,7 @@ public class ZombieOutbreak_2 {
                             System.out.println(" ");
                             System.out.println("Congratulations! You have saved humanity!");
                             System.out.println(" ");
+                            System.out.println("-------------------------------------------------");
 
                         } else {
 
@@ -647,6 +638,7 @@ public class ZombieOutbreak_2 {
                             System.out.println(" ");
                             System.out.println("Once again, humanity has lost its hope...");
                             System.out.println(" ");
+                            System.out.println("-------------------------------------------------");
                         }
 
                     } else {
@@ -659,13 +651,13 @@ public class ZombieOutbreak_2 {
                         System.out.println(" ");
                         System.out.println("Once again, humanity has lost its hope...");
                         System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
                     }
 
                     break;
 
-                // =================================================
+
                 // POISONOUS SMOKE
-                // =================================================
                 case 4:
 
                     System.out.println(" ");
@@ -695,6 +687,7 @@ public class ZombieOutbreak_2 {
                             System.out.println(" ");
                             System.out.println("Congratulations! You have saved humanity!");
                             System.out.println(" ");
+                            System.out.println("-------------------------------------------------");
 
                         } else {
 
@@ -705,6 +698,7 @@ public class ZombieOutbreak_2 {
                             System.out.println(" ");
                             System.out.println("Once again, humanity has lost its hope...");
                             System.out.println(" ");
+                            System.out.println("-------------------------------------------------");
                         }
 
                     } else {
@@ -717,13 +711,13 @@ public class ZombieOutbreak_2 {
                         System.out.println(" ");
                         System.out.println("Once again, humanity has lost its hope...");
                         System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
                     }
 
                     break;
 
-                // =================================================
+        
                 // POISONED SYRINGE
-                // =================================================
                 case 5:
 
                     System.out.println(" ");
@@ -755,6 +749,7 @@ public class ZombieOutbreak_2 {
                             System.out.println(" ");
                             System.out.println("Congratulations! You have saved humanity!");
                             System.out.println(" ");
+                            System.out.println("-------------------------------------------------");
 
                         } else {
 
@@ -766,6 +761,7 @@ public class ZombieOutbreak_2 {
                             System.out.println(" ");
                             System.out.println( "Once again, humanity has lost its hope...");
                             System.out.println(" ");
+                            System.out.println("-------------------------------------------------");
                         }
 
                     } else {
@@ -778,6 +774,7 @@ public class ZombieOutbreak_2 {
                         System.out.println(" ");
                         System.out.println(   "Once again, humanity has lost its hope...");
                         System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
                     }
 
                     break;
@@ -791,6 +788,7 @@ public class ZombieOutbreak_2 {
                     System.out.println(" ");
                     System.out.println("Once again, humanity has lost its hope...");
                     System.out.println(" ");
+                    System.out.println("-------------------------------------------------");
             }
         }
     }
@@ -799,26 +797,26 @@ public class ZombieOutbreak_2 {
 
         Scanner input = new Scanner(System.in);
 
-        title();
+        title(); //first scene or like introductory
 
-        String name = identification(input);
+        String name = identification(input); //player info
 
         if (!name.isEmpty()) {
 
-            int playerRole = role(input);
+            int playerRole = role(input); //payer role part
 
-            firstAttack(input);
+            firstAttack(input); //attack, damage, declaration of potions
 
-            int lootChoice = lootExploration(input);
+            int lootChoice = lootExploration(input); //abandoned building, declaration of loot choice
 
-            String syringeChoice =
+            String syringeChoice =         // only applies to medics
                     survivorScenario(
                             input,
                             playerRole,
                             potionClass,
                             lootChoice);
 
-            bossFight(
+            bossFight(                      //final boss fight
                     input,
                     playerRole,
                     potionClass,
@@ -827,22 +825,18 @@ public class ZombieOutbreak_2 {
         }
 
         System.out.println("-------------------------------------------------");
-
-        System.out.println(
-                "Would you like to play again? (yes/no): ");
-
+        System.out.println("Would you like to play again? (yes/no): ");
         String playAgain = input.next();
 
         if (playAgain.equalsIgnoreCase("yes")) {
 
-            main(args);
+            main(args); //go back to start
 
         } else {
 
-            System.out.println(
-                    "Thank you for playing the Zombie Outbreak Simulation!");
+            System.out.println("Thank you for playing the Zombie Outbreak Simulation!");
         }
 
-        input.close();
+        input.close(); //aww bye byeee
     }
 }
