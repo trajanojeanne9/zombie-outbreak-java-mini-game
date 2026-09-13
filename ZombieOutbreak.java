@@ -853,7 +853,8 @@ public class ZombieOutbreak_2 {
                 System.out.println("A new life begins in a world still threatened by the outbreak."); 
                 main(args); 
         }            
-            else {       // other
+            else            // other
+                {       
                 System.out.println(); 
                 System.out.println("You have chosen to accept your fate."); 
                 System.out.println("The story ends here.");  
