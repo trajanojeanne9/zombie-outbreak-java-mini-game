@@ -822,21 +822,40 @@ public class ZombieOutbreak_2 {
                     potionClass,
                     lootChoice,
                     syringeChoice);
+      
+                System.out.println("-------------------------------------------------"); 
+                System.out.println("Your journey has come to an end..."); 
+                System.out.println(); 
+                System.out.println("But this is not necessarily your final fate."); 
+                System.out.println(); 
+                System.out.println("[1] Go Back in Time"); 
+                System.out.println("[2] Reincarnate"); 
+                System.out.print("Choose your fate: "); 
+                int fate = input.nextInt(); 
         }
 
-        System.out.println("-------------------------------------------------");
-        System.out.println("Would you like to play again? (yes/no): ");
-        String playAgain = input.next();
-
-        if (playAgain.equalsIgnoreCase("yes")) {
-
-            main(args); //go back to start
-
-        } else {
-
-            System.out.println("Thank you for playing the Zombie Outbreak Simulation!");
-        }
-
-        input.close(); //aww bye byeee
+            if (fate == 1) // go back in time
+                { 
+                System.out.println(); 
+                System.out.println("You chose to go back in time."); 
+                System.out.println("The clock turns backward..."); 
+                System.out.println("You are given another chance to change your fate."); 
+                
+                main(args);
+        }   
+            else if (fate == 2)  // reincarnate
+                {  
+                System.out.println(); 
+                System.out.println("You chose to reincarnate."); 
+                System.out.println("Your current life fades away..."); 
+                System.out.println("A new life begins in a world still threatened by the outbreak."); 
+                main(args); 
+        }            
+            else { 
+                System.out.println(); 
+                System.out.println("You have chosen to accept your fate."); 
+                System.out.println("The story ends here."); 
+    }
+        input.close();
     }
 }
