@@ -5,6 +5,7 @@ public class ZombieOutbreak_2 {
     static int potionClass = 0;
 
     public static void title() {
+        System.out.println(" ");
         System.out.println("=================================================");
         System.out.println("                 ZOMBIE OUTBREAK                 ");
         System.out.println("=================================================");
@@ -800,6 +801,8 @@ public class ZombieOutbreak_2 {
         title(); //first scene or like introductory
 
         String name = identification(input); //player info
+        
+        int fate = 0; // declare fate
 
         if (!name.isEmpty()) {
 
@@ -831,7 +834,7 @@ public class ZombieOutbreak_2 {
                 System.out.println("[1] Go Back in Time"); 
                 System.out.println("[2] Reincarnate"); 
                 System.out.print("Choose your fate: "); 
-                int fate = input.nextInt(); 
+                fate = input.nextInt(); 
         }
 
             if (fate == 1) // go back in time
@@ -839,8 +842,7 @@ public class ZombieOutbreak_2 {
                 System.out.println(); 
                 System.out.println("You chose to go back in time."); 
                 System.out.println("The clock turns backward..."); 
-                System.out.println("You are given another chance to change your fate."); 
-                
+                System.out.println("You are given another chance to change your fate.");    
                 main(args);
         }   
             else if (fate == 2)  // reincarnate
