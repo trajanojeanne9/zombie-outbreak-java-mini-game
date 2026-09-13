@@ -801,7 +801,7 @@ public class ZombieOutbreak_2 {
         title(); //first scene or like introductory
 
         String name = identification(input); //player info
-        
+
         int fate = 0; // declare fate
 
         if (!name.isEmpty()) {
@@ -853,10 +853,10 @@ public class ZombieOutbreak_2 {
                 System.out.println("A new life begins in a world still threatened by the outbreak."); 
                 main(args); 
         }            
-            else { 
+            else {       // other
                 System.out.println(); 
                 System.out.println("You have chosen to accept your fate."); 
-                System.out.println("The story ends here."); 
+                System.out.println("The story ends here.");  
     }
         input.close();
     }
