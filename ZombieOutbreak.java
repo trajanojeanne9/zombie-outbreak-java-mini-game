@@ -61,10 +61,6 @@ public class ZombieOutbreak_2 {
     public static int role(Scanner input) {
         System.out.println(" ");
         System.out.println(" ");
-        System.out.println(" ");
-        System.out.println(" ");
-        System.out.println(" ");
-        System.out.println(" ");
 
         //THE ROLE CHOICES
         System.out.println("=================================================");
@@ -398,34 +394,39 @@ public class ZombieOutbreak_2 {
             System.out.println(" ");
             System.out.println("-------------------------------------------------");
             System.out.println(" ");
-            System.out.println("\nAs you continue forward, you hear screaming. A group \nof survivors is trapped and begging for help.");
-            System.out.println("You still have the Mystery Syringe. It might be able \nto help them.");
+            System.out.println("\nAs you continue forward, you hear screaming. A group \n   of survivors is trapped and begging for help.");
+            System.out.println("You still have the Mystery Syringe. It might be able \n                  to help them.");
             System.out.println(" ");
             System.out.println("-------------------------------------------------");
             System.out.println(" ");
-            System.out.println("Would you like to give them the syringe, or save it for\n the fight ahead? (give/save): ");
+            System.out.println("Would you like to give them the syringe, or save it for\nthe fight ahead? (give/save): ");
 
             syringeChoice = input.next();
-            if (syringeChoice.trim().isEmpty()) {
-                System.out.println("Input cannot be empty. Please enter 'give' or 'save'.");
+            if (syringeChoice.trim().isEmpty() || (!syringeChoice.equalsIgnoreCase("give") && !syringeChoice.equalsIgnoreCase("save"))) {
+                System.out.println(" ");
+                System.out.println(" ");
+                System.out.println(" ");
+                System.out.println("INPUT CANNOT BE EMPTY! Please enter 'give' or 'save'.");
                 return survivorScenario(input, roleChoice, potionClass, lootChoice);
             }
 
             if (syringeChoice.equalsIgnoreCase("give")) {
+                System.out.println(" ");
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
-                System.out.println("You hand over the Mystery Syringe. The survivors are \nsaved and thank you for your kindness.");
-                System.out.println("However, you no longer have the syringe for what lies \nahead.");
+                System.out.println("[You hand over the Mystery Syringe. The survivors are \nsaved and thank you for your kindness]");
+                System.out.println("[However, you no longer have the syringe for what lies \nahead]");
                 System.out.println(" ");
                 System.out.println("-------------------------------------------------");
 
             } else {
+                System.out.println(" ");
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
-                System.out.println("  You decide to save the syringe. The survivors' \n  cries fade behind you as you press on.");
-                System.out.println("\nYou continue forward, but you hear distant screams. \nYou cannot help them as you have no means to do so.");
+                System.out.println(" [You decide to save the syringe. The survivors' \n         cries fade behind you as you press on.");
+                System.out.println("\nYou continue forward, but you hear distant screams. \nYou cannot help them as you have no means to do so]");
                 System.out.println(" ");
-                System.out.println("You press on, hoping to find a way to save humanity.");
+                System.out.println("[You press on, hoping to find a way to save humanity]");
                 System.out.println(" ");
                 System.out.println("-------------------------------------------------");
             }
@@ -437,13 +438,14 @@ public class ZombieOutbreak_2 {
 public static String bossFight(Scanner input, int role, int potionClass, int lootChoice, String syringeChoice) {
     System.out.println(" ");
     System.out.println("-------------------------------------------------");
-    System.out.println("\nYou have reached the base of the Zombie King, \n               the final boss.");
+    System.out.println("\n  You have reached the base of the Zombie King, \n               the final boss.");
     System.out.println(" ");
-    System.out.println("      Preparing for the final battle...");
+    System.out.println("        Preparing for the final battle...");
     System.out.println(" ");
     System.out.println("-------------------------------------------------");
     System.out.println(" ");
     System.out.println("Your attacks seem to have no effect on the Zombie\n                      King.");
+    System.out.println(" ");
     System.out.println("Your party is in a predicament...");
     System.out.println(" ");
     System.out.println("-------------------------------------------------");
@@ -547,8 +549,9 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                         System.out.println(" ");
                         System.out.println("-------------------------------------------------");
                         System.out.println(" ");
-                        System.out.println("You do not meet the conditions to wield the \nExcalibur.");
+                        System.out.println("   You do not meet the conditions to wield the \n                 Excalibur.");
                         System.out.println("The Zombie King has defeated you and your party.");
+                        System.out.println(" ");
                         System.out.println("Once again, humanity has lost its hope...");
                         System.out.println(" ");
                         System.out.println("-------------------------------------------------");
@@ -557,8 +560,8 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                 } else {
                     System.out.println(" ");
                     System.out.println("-------------------------------------------------");
-                    System.out.println("You have chosen not to attempt to wield the \nLegendary Sword.");
-                    System.out.println("The Zombie King has defeated you and your party.");
+                    System.out.println(" You have chosen not to attempt to wield the \nLegendary Sword.");
+                    System.out.println(" The Zombie King has defeated you and your party.");
                     System.out.println(" ");
                     System.out.println("Once again, humanity has lost its hope....");
                     System.out.println(" ");
@@ -588,10 +591,10 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                         System.out.println(" ");
                         System.out.println("-------------------------------------------------");
                         System.out.println(" ");
-                        System.out.println("You have successfully used the Annihilator!");
-                        System.out.println("The Annihilator has defeated the Zombie King!");
+                        System.out.println("   You have successfully used the Annihilator!");
+                        System.out.println("  The Annihilator has defeated the Zombie King!");
                         System.out.println(" ");
-                        System.out.println("Congratulations! You have saved humanity!");
+                        System.out.println("    Congratulations! You have saved humanity!");
                         System.out.println(" ");
                         System.out.println("-------------------------------------------------");
 
@@ -645,8 +648,8 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                         System.out.println(" ");
                         System.out.println("-------------------------------------------------");
                         System.out.println(" ");
-                        System.out.println("You have successfully used the Toxic Device!");
-                        System.out.println("\nThe Toxic Device has defeated the Zombie King!");
+                        System.out.println("  You have successfully used the Toxic Device!");
+                        System.out.println("\n The Toxic Device has defeated the Zombie King!");
                         System.out.println(" ");
                         System.out.println("Congratulations! You have saved humanity!");
                         System.out.println(" ");
@@ -709,7 +712,7 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                     } else {
                         System.out.println("-------------------------------------------------");
                         System.out.println(" ");
-                        System.out.println("You do not meet the conditions to use the Poisonous\n Smoke.");
+                        System.out.println("You do not meet the conditions to use the Poisonous\n                    Smoke.");
                         System.out.println(  "\nThe Zombie King has defeated you and your party.");
                         System.out.println(" ");
                         System.out.println("Once again, humanity has lost its hope...");
@@ -721,7 +724,7 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                     System.out.println(" ");
                     System.out.println("-------------------------------------------------");
                     System.out.println(" ");
-                    System.out.println("You have chosen not to attempt to use the Poisonous\n Smoke.");
+                    System.out.println("You have chosen not to attempt to use the Poisonous\n                    Smoke.");
                     System.out.println("The Zombie King has defeated you and your party.");
                     System.out.println(" ");
                     System.out.println("Once again, humanity has lost its hope...");
@@ -747,7 +750,7 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
 
                 String attemptSyringe = input.next();
                 if (attemptSyringe.equalsIgnoreCase("yes")) {
-                    if (role == 3 && potionClass == 2 && lootChoice == 3 && syringeChoice.equals("save")) {
+                    if (role == 3 && potionClass == 2 && lootChoice == 3 && syringeChoice.equalsIgnoreCase("save")) {
                         System.out.println(" ");
                         System.out.println("-------------------------------------------------");
                         System.out.println(" ");
@@ -762,7 +765,7 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                         System.out.println(" ");
                         System.out.println("-------------------------------------------------");
                         System.out.println(" ");
-                        System.out.println( "You do not meet the conditions to use the Poisoned\nSyringe.");
+                        System.out.println( "You do not meet the conditions to use the Poisoned\n                   Syringe.");
                         System.out.println( "The Zombie King has defeated you and your party.");
                         System.out.println(" ");
                         System.out.println( "Once again, humanity has lost its hope...");
@@ -787,9 +790,9 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                 System.out.println(" ");
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
-                System.out.println("Invalid choice. The Zombie King has defeated you \band your party.");
+                System.out.println(" Invalid choice. The Zombie King has defeated you \n        band your party.");
                 System.out.println(" ");
-                System.out.println("Once again, humanity has lost its hope...");
+                System.out.println("     Once again, humanity has lost its hope...");
                 System.out.println(" ");
                 System.out.println("-------------------------------------------------");
         }
@@ -833,12 +836,13 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                 System.out.println(" ");
                 System.out.println(" ");   
                 System.out.println("-------------------------------------------------"); 
-                System.out.println("Your journey has come to an end..."); 
+                System.out.println("       Your journey has come to an end..."); 
                 System.out.println(""); 
-                System.out.println("But this is not necessarily your final fate."); 
+                System.out.println("  But this is not necessarily your final fate."); 
                 System.out.println(""); 
                 System.out.println("[1] Go Back in Time"); 
                 System.out.println("[2] Reincarnate"); 
+                System.out.println(" ");
                 System.out.print("Choose your fate: "); 
                 System.out.println(" ");
                 
@@ -853,7 +857,7 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                 System.out.println("           You chose to Go back in Time.         "); 
                 System.out.println("=================================================");
                 System.out.println(" ");
-                System.out.println("The clock turns backward..."); 
+                System.out.println("          The clock turns backward..."); 
                 System.out.println("You are given another chance to change your fate."); 
                 System.out.println(" "); 
                 System.out.println("-------------------------------------------------");
@@ -867,8 +871,8 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                 System.out.println("           You chose to Reincarnate.             "); 
                 System.out.println("=================================================");
                 System.out.println(" ");
-                System.out.println("Your current life fades away..."); 
-                System.out.println("A new life begins in a world still threatened by the outbreak."); 
+                System.out.println("      Your current life fades away..."); 
+                System.out.println("A new life begins in a world still threatened by\n                   the outbreak."); 
                 System.out.println(" ");
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
@@ -880,8 +884,8 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                 {       
                 System.out.println(); 
                 System.out.println("-------------------------------------------------");
-                System.out.println("You have chosen to accept your fate."); 
-                System.out.println("The story ends here.");  
+                System.out.println("    You have chosen to accept your fate."); 
+                System.out.println("           [The story ends here.]");  
                 System.out.println("-------------------------------------------------");
     }
         input.close();
