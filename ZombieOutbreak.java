@@ -18,7 +18,7 @@ public class ZombieOutbreak_2 {
         System.out.println(" ");
         System.out.println("-------------------------------------------------");
     }
-    //PLAYER INFOOO!!
+    //PLAYER INFO
     public static String identification(Scanner input) {
         System.out.println(" ");
         System.out.print("Enter your name: ");
@@ -30,9 +30,17 @@ public class ZombieOutbreak_2 {
         }
 
         System.out.print("Enter your age: ");
+        if (!input.hasNextInt()) {
+            System.out.println("-------------------------------------------------");
+            System.out.println("Invalid input, please enter a number.");
+            input.nextLine(); // Clear the invalid input
+            return identification(input);
+        }
+        
         int age = input.nextInt();
         input.nextLine();
 
+        
         if (!(age >= 18)) {
             System.out.println(" ");
             System.out.println("-------------------------------------------------");
@@ -58,7 +66,7 @@ public class ZombieOutbreak_2 {
         System.out.println(" ");
         System.out.println(" ");
 
-        //THE ROLE CHOICES!!!
+        //THE ROLE CHOICES
         System.out.println("=================================================");
         System.out.println("                CHOOSE YOUR ROLE                ");
         System.out.println("=================================================");
@@ -70,6 +78,13 @@ public class ZombieOutbreak_2 {
         System.out.println(" ");
 
         System.out.print("Enter your choice (1-5): ");
+         if (!input.hasNextInt()) {
+            System.out.println("-------------------------------------------------");
+            System.out.println("Invalid input, please enter a number.");
+            input.nextLine(); // Clear the invalid input
+            return role(input);
+         }
+
         int roleChoice = input.nextInt();
 
         switch (roleChoice) {
@@ -85,7 +100,7 @@ public class ZombieOutbreak_2 {
                 System.out.println(" ");
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
-                System.out.println("You have chosen the Cowboy class. You are skilled\n      in quick draws and marksmanship.");
+                System.out.println("You have chosen the COWBOY class. You are skilled\n      in quick draws and marksmanship.");
                 System.out.println(" ");
                 break;
 
@@ -93,7 +108,7 @@ public class ZombieOutbreak_2 {
                 System.out.println(" ");
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
-                System.out.println("You have chosen the Medic class. You are skilled \n           in healing and support.");
+                System.out.println("You have chosen the MEDIC class. You are skilled \n           in healing and support.");
                 System.out.println(" ");
                 break;
 
@@ -101,7 +116,7 @@ public class ZombieOutbreak_2 {
                 System.out.println(" ");
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
-                System.out.println("   You have chosen the Engineer class. You are \n      skilled in building and repairing.");
+                System.out.println("   You have chosen the ENGINEER class. You are \n      skilled in building and repairing.");
                 System.out.println(" ");
                 break;
 
@@ -109,7 +124,7 @@ public class ZombieOutbreak_2 {
                 System.out.println(" ");
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
-                System.out.println("  You have chosen the Scientist class. You are \n     skilled in research and development.");
+                System.out.println("  You have chosen the SCIENTIST class. You are \n     skilled in research and development.");
                 System.out.println(" ");
                 break;
 
@@ -119,12 +134,13 @@ public class ZombieOutbreak_2 {
                 System.out.println(" ");
                 System.out.println("Invalid choice. Please select a class to continue.");
                 System.out.println(" ");
+                return role(input);
         }
 
         return roleChoice;
     }
 
-    //OHH NOO THE FIRST ATTACK!!
+    //THE FIRST ATTACK
     public static int firstAttack(Scanner input) {
 
         System.out.println("-------------------------------------------------");
@@ -145,15 +161,17 @@ public class ZombieOutbreak_2 {
 
         if (potionUse.trim().isEmpty()) {
             System.out.println("Input cannot be empty. Please enter 'yes' or 'no'.");
+            return firstAttack(input);
         }
 
-        //POTION CHOICES IF YESSS
+        //POTION CHOICES IF YES
         if (potionUse.equalsIgnoreCase("yes")) {
 
             System.out.println(" ");
             System.out.println("=================================================");
             System.out.println("              CHOOSE YOUR POTION                ");
             System.out.println("=================================================");
+            System.out.println("Choose wisely, each potion has a hidden effects.");
 
             System.out.println("\n1. Blue Potion (+80 HP)");
             System.out.println("2. Red Potion (+100 HP)");
@@ -162,10 +180,14 @@ public class ZombieOutbreak_2 {
             System.out.println("5. White Potion (+60 HP)");
 
             System.out.print("\nEnter your choice (1-5): ");
+            if (!input.hasNextInt()) {
+                System.out.println("Invalid input, please enter a number.");
+                input.nextLine(); // Clear the invalid input
+                return firstAttack(input);
+            }
             potionClass = input.nextInt();
 
             switch (potionClass) {
-
                 case 1:
                     hp += 80;
                     potionClass = 1;
@@ -225,6 +247,7 @@ public class ZombieOutbreak_2 {
                     System.out.println(" ");
                     System.out.println("Invalid choice. No potion applied.");
                     potionClass = 0;
+                    return potionClass;
             }
         }
 
@@ -239,7 +262,7 @@ public class ZombieOutbreak_2 {
         System.out.println("Would you like to continue to the next stage? (yes/no): ");
         String continueGame = input.next();
 
-        //IF NO POTION :(
+        //IF NO
         if (continueGame.equalsIgnoreCase("no")) {
             System.out.println("You have chosen to exit the simulation. Game Over.");
             System.exit(0);
@@ -248,7 +271,7 @@ public class ZombieOutbreak_2 {
         return hp;
     }
 
-    // PART 2 EXPLORE THE ABANDONED BUILDING WOAHH LOOT BOX!!!!!
+    // PART 2 EXPLORE THE ABANDONED BUILDING
     public static int lootExploration(Scanner input) {
 
         System.out.println(" ");
@@ -277,7 +300,7 @@ public class ZombieOutbreak_2 {
 
         int lootChoice = 0;
 
-        //CHOICES IF YES!!!
+        //CHOICES IF YES
         if (openLoot.equalsIgnoreCase("yes")) {
 
             System.out.println(" ");
@@ -297,10 +320,15 @@ public class ZombieOutbreak_2 {
             System.out.println(" ");
 
             System.out.print("Enter your choice (1-5): ");
+            if (!input.hasNextInt()) {
+                System.out.println("Invalid input, please enter a number.");
+                input.nextLine(); // Clear the invalid input
+                return lootExploration(input);
+            }
+
             lootChoice = input.nextInt();
 
             switch (lootChoice) {
-
                 case 1:
                     System.out.println(" ");
                     System.out.println("=================================================");
@@ -348,7 +376,7 @@ public class ZombieOutbreak_2 {
                     System.out.println("Invalid choice. You leave the loot box untouched.");
             }
 
-        // AWWW didnt open ;(((
+        // CHOSE NOT TO OPEN
         } else {
 
             System.out.println(" ");
@@ -357,7 +385,6 @@ public class ZombieOutbreak_2 {
 
             System.out.println("You decide not to open the loot box and continue on.");
         }
-
         return lootChoice;
     }
 
@@ -379,9 +406,12 @@ public class ZombieOutbreak_2 {
             System.out.println("Would you like to give them the syringe, or save it for\n the fight ahead? (give/save): ");
 
             syringeChoice = input.next();
+            if (syringeChoice.trim().isEmpty()) {
+                System.out.println("Input cannot be empty. Please enter 'give' or 'save'.");
+                return survivorScenario(input, roleChoice, potionClass, lootChoice);
+            }
 
             if (syringeChoice.equalsIgnoreCase("give")) {
-    
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
                 System.out.println("You hand over the Mystery Syringe. The survivors are \nsaved and thank you for your kindness.");
@@ -390,7 +420,6 @@ public class ZombieOutbreak_2 {
                 System.out.println("-------------------------------------------------");
 
             } else {
-
                 System.out.println("-------------------------------------------------");
                 System.out.println(" ");
                 System.out.println("  You decide to save the syringe. The survivors' \n  cries fade behind you as you press on.");
@@ -401,404 +430,379 @@ public class ZombieOutbreak_2 {
                 System.out.println("-------------------------------------------------");
             }
         }
-
         return syringeChoice;
     }
 
-    //!!!!!!!!!!!!!!!BOSSSS FIGHTTTT!!!!!!!!!!!!!!!!!!!
-    public static void bossFight(Scanner input, int role, int potionClass, int lootChoice, String syringeChoice) {
-        System.out.println(" ");
-        System.out.println("-------------------------------------------------");
-        System.out.println("\nYou have reached the base of the Zombie King, \n               the final boss.");
-        System.out.println(" ");
-        System.out.println("      Preparing for the final battle...");
-        System.out.println(" ");
-        System.out.println("-------------------------------------------------");
-        System.out.println(" ");
-        System.out.println("Your attacks seem to have no effect on the Zombie\n                      King.");
-        System.out.println("Your party is in a predicament...");
-        System.out.println(" ");
-        System.out.println("-------------------------------------------------");
-        System.out.println("\n  Different materials has appeared in front of\n   you, capable of defeating the Zombie King.");
-        System.out.println(" ");
-        System.out.println("Would you like to attempt to use them? (yes/no): ");
+   //BOSS FIGHT
+public static String bossFight(Scanner input, int role, int potionClass, int lootChoice, String syringeChoice) {
+    System.out.println(" ");
+    System.out.println("-------------------------------------------------");
+    System.out.println("\nYou have reached the base of the Zombie King, \n               the final boss.");
+    System.out.println(" ");
+    System.out.println("      Preparing for the final battle...");
+    System.out.println(" ");
+    System.out.println("-------------------------------------------------");
+    System.out.println(" ");
+    System.out.println("Your attacks seem to have no effect on the Zombie\n                      King.");
+    System.out.println("Your party is in a predicament...");
+    System.out.println(" ");
+    System.out.println("-------------------------------------------------");
+    System.out.println("\n  Different materials has appeared in front of\n   you, capable of defeating the Zombie King.");
+    System.out.println(" ");
+    System.out.println("Would you like to attempt to use them? (yes/no): ");
 
-        String attemptMaterial = input.next();
+    String attemptMaterial = input.next();
+    while (attemptMaterial.trim().isEmpty()) {
+        System.out.println("Input cannot be empty. Please enter 'yes' or 'no'.");
+        attemptMaterial = input.next();
+    }
 
-        if (attemptMaterial.equalsIgnoreCase("no")) {
-            
-            System.out.println(" ");
-            System.out.println("-------------------------------------------------");
-            System.out.println(" ");
-            System.out.println("You have chosen not to attempt to use the materials.");
-            System.out.println(" ");
-            System.out.println("The Zombie King has defeated you and your party.");
-            System.out.println(" ");
-            System.out.println("Once again, humanity has lost its hope...");
-            System.out.println(" ");
-            System.out.println("-------------------------------------------------");
-            System.out.println("               [[ Game Over. ]]");
-
-            return;
-        }
-
-        if (!attemptMaterial.equalsIgnoreCase("yes")) {
-
-            System.out.println(" ");
-            System.out.println("-------------------------------------------------");
-            System.out.println("Invalid input. The Zombie King has defeated you\n            and your party.");
-            System.out.println("Once again, humanity has lost its hope...");
-            System.out.println("-------------------------------------------------");
-            System.out.println("Game Over.");
-
-            return;
-        }
-
-        if (attemptMaterial.equalsIgnoreCase("yes")) {
-            
-            System.out.println(" ");
-            System.out.println("-------------------------------------------------");
-            System.out.println("You have chosen to attempt to use the materials.");
-            System.out.println("Choose one material you would like to use:");
-            System.out.println(" ");
-
-            System.out.println("1. Excalibur");
-            System.out.println("2. Annihilator");
-            System.out.println("3. Toxic Device");
-            System.out.println("4. Poisonous Smoke");
-            System.out.println("5. Poisoned Syringe");
-
-            System.out.println(" ");
-
-            System.out.print("Enter your choice (1-5): ");
-            int materialChoice = input.nextInt();
-
-            switch (materialChoice) {
-
-
-                // EXCALIBUR
-                case 1:
-
-                    System.out.println(" ");
-                    System.out.println("=================================================");
-                    System.out.println("         You have chosen the Excalibur!");
-                    System.out.println("=================================================");
-                    System.out.println(" ");
-                    System.out.println("To wield the Excalibur, you must meet the following\nconditions:");
-                    System.out.println(" ");
-                    System.out.println("1. You must be a Warrior class.");
-                    System.out.println("2. You must have 70 hp.");
-                    System.out.println("3. You must have the Talisman.");
-                    System.out.println(" ");
-                    System.out.println("-------------------------------------------------");
-
-                    System.out.println("Would you like to attempt to wield the Excalibur? (yes/no): ");
-
-                    String attemptSword = input.next();
-
-                    if (attemptSword.equalsIgnoreCase("yes")) {
-
-                        if (role == 1 && potionClass == 3 && lootChoice == 5) {
-
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                            System.out.println("You have successfully wielded the Excalibur!");
-                            System.out.println(" ");
-                            System.out.println("The Excalibur has defeated the Zombie King!");
-                            System.out.println(" ");
-                            System.out.println("Congratulations! You have saved humanity!");
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-
-                        } else {
-
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                            System.out.println(" ");
-                            System.out.println("You do not meet the conditions to wield the \nExcalibur.");
-                            System.out.println("The Zombie King has defeated you and your party.");
-                            System.out.println("Once again, humanity has lost its hope...");
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                        }
-
-                    } else {
-
-                        System.out.println(" ");
-                        System.out.println("-------------------------------------------------");
-                        System.out.println("You have chosen not to attempt to wield the \nLegendary Sword.");
-                        System.out.println("The Zombie King has defeated you and your party.");
-                        System.out.println(" ");
-                        System.out.println("Once again, humanity has lost its hope....");
-                        System.out.println(" ");
-                        System.out.println("-------------------------------------------------");
-                    }
-
-                    break;
-
-                // ANNIHILATOR
-                case 2:
-
-                    System.out.println(" ");
-                    System.out.println("=================================================");
-                    System.out.println("       You have chosen the Annihilator!");
-                    System.out.println("=================================================");
-                    System.out.println(" ");
-                    System.out.println("To use the Annihilator, you must meet the \nfollowing conditions:");
-                    System.out.println(" ");
-                    System.out.println("1. You must be a Cowboy class.");
-                    System.out.println("2. You must have 50 hp.");
-                    System.out.println("3. You must have the Gun Powder.");
-                    System.out.println(" ");
-                    System.out.println("Would you like to attempt to use the Annihilator? (yes/no): ");
-
-                    String attemptGun = input.next();
-
-                    if (attemptGun.equalsIgnoreCase("yes")) {
-
-                        if (role == 2 && potionClass == 4 && lootChoice == 4) {
-
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                            System.out.println(" ");
-                            System.out.println("You have successfully used the Annihilator!");
-                            System.out.println("The Annihilator has defeated the Zombie King!");
-                            System.out.println(" ");
-                            System.out.println("Congratulations! You have saved humanity!");
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-
-                        } else {
-
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                            System.out.println(" ");
-                            System.out.println("You do not meet the conditions to use the Annihilator.");
-                            System.out.println("The Zombie King has defeated you and your party.");
-                            System.out.println(" ");
-                            System.out.println("Once again, humanity has lost its hope.....");
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                        }
-
-                    } else {
-
-                        System.out.println(" ");
-                        System.out.println("-------------------------------------------------");
-                        System.out.println(" ");
-                        System.out.println("You have chosen not to attempt to use the Annihilator.");
-                        System.out.println("The Zombie King has defeated you and your party.");
-                        System.out.println(" ");
-                        System.out.println("Once again, humanity has lost its hope...");
-                        System.out.println(" ");
-                        System.out.println("-------------------------------------------------");
-                    }
-
-                    break;
-
-             
-                // TOXIC DEVICE
-                case 3:
-
-                    System.out.println(" ");
-                    System.out.println("=================================================");
-                    System.out.println("      You have chosen the Toxic Device!");
-                    System.out.println("=================================================");
-                    System.out.println(" ");
-                    System.out.println("To use the Toxic Device, you must meet the \nfollowing conditions:");
-                    System.out.println(" ");
-                    System.out.println("1. You must be an Engineer class.");
-                    System.out.println("2. You must have 100 hp.");
-                    System.out.println("3. You must have the Metal Scraps.");
-                    System.out.println(" ");
-                    System.out.println("Would you like to attempt to use the Toxic Device? (yes/no): ");
-
-                    String attemptDevice = input.next();
-
-                    if (attemptDevice.equalsIgnoreCase("yes")) {
-
-                        if (role == 4 && potionClass == 1 && lootChoice == 1) {
-
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                            System.out.println(" ");
-                            System.out.println("You have successfully used the Toxic Device!");
-                            System.out.println("\nThe Toxic Device has defeated the Zombie King!");
-                            System.out.println(" ");
-                            System.out.println("Congratulations! You have saved humanity!");
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-
-                        } else {
-
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                            System.out.println(" ");
-                            System.out.println("You do not meet the conditions to use the Toxic Device.");
-                            System.out.println("\nThe Zombie King has defeated you and your party.");
-                            System.out.println(" ");
-                            System.out.println("Once again, humanity has lost its hope...");
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                        }
-
-                    } else {
-
-                        System.out.println(" ");
-                        System.out.println("-------------------------------------------------");
-                        System.out.println(" ");
-                        System.out.println("You have chosen not to attempt to use the Toxic Device.");
-                        System.out.println("\nThe Zombie King has defeated you and your party.");
-                        System.out.println(" ");
-                        System.out.println("Once again, humanity has lost its hope...");
-                        System.out.println(" ");
-                        System.out.println("-------------------------------------------------");
-                    }
-
-                    break;
-
-
-                // POISONOUS SMOKE
-                case 4:
-
-                    System.out.println(" ");
-                    System.out.println("=================================================");
-                    System.out.println("       You have chosen the Poisonous Smoke!      ");
-                    System.out.println("=================================================");
-                    System.out.println(" ");
-                    System.out.println("To use the Poisonous Smoke, you must meet the \nfollowing conditions:");
-                    System.out.println(" ");
-                    System.out.println("1. You must be a Scientist class.");
-                    System.out.println("2. You must have 80 hp.");
-                    System.out.println("3. You must have the Mask.");
-                    System.out.println(" ");
-                    System.out.println("Would you like to attempt to use the Poisonous Smoke? (yes/no): ");
-
-                    String attemptSmoke = input.next();
-
-                    if (attemptSmoke.equalsIgnoreCase("yes")) {
-
-                        if (role == 5 && potionClass == 5 && lootChoice == 2) {
-
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                            System.out.println(" ");
-                            System.out.println("You have successfully used the Poisonous Smoke!");
-                            System.out.println("\nThe Poisonous Smoke has defeated the Zombie King!");
-                            System.out.println(" ");
-                            System.out.println("Congratulations! You have saved humanity!");
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-
-                        } else {
-
-                            System.out.println("-------------------------------------------------");
-                            System.out.println(" ");
-                            System.out.println("You do not meet the conditions to use the Poisonous\n Smoke.");
-                            System.out.println(  "\nThe Zombie King has defeated you and your party.");
-                            System.out.println(" ");
-                            System.out.println("Once again, humanity has lost its hope...");
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                        }
-
-                    } else {
-
-                        System.out.println(" ");
-                        System.out.println("-------------------------------------------------");
-                        System.out.println(" ");
-                        System.out.println("You have chosen not to attempt to use the Poisonous\n Smoke.");
-                        System.out.println("The Zombie King has defeated you and your party.");
-                        System.out.println(" ");
-                        System.out.println("Once again, humanity has lost its hope...");
-                        System.out.println(" ");
-                        System.out.println("-------------------------------------------------");
-                    }
-
-                    break;
-
+    if (attemptMaterial.equalsIgnoreCase("no")) {
         
-                // POISONED SYRINGE
-                case 5:
+        System.out.println(" ");
+        System.out.println("-------------------------------------------------");
+        System.out.println(" ");
+        System.out.println("You have chosen not to attempt to use the materials.");
+        System.out.println(" ");
+        System.out.println("The Zombie King has defeated you and your party.");
+        System.out.println(" ");
+        System.out.println("Once again, humanity has lost its hope...");
+        System.out.println(" ");
+        System.out.println("-------------------------------------------------");
+        System.out.println("               [[ Game Over. ]]");
 
+        return attemptMaterial;
+    }
+
+    if (!attemptMaterial.equalsIgnoreCase("yes")) {
+
+        System.out.println(" ");
+        System.out.println("-------------------------------------------------");
+        System.out.println("Invalid input. The Zombie King has defeated you\n            and your party.");
+        System.out.println("Once again, humanity has lost its hope...");
+        System.out.println("-------------------------------------------------");
+        System.out.println("Game Over.");
+
+        return attemptMaterial;
+    }
+
+    if (attemptMaterial.equalsIgnoreCase("yes")) {
+        
+        System.out.println(" ");
+        System.out.println("-------------------------------------------------");
+        System.out.println("You have chosen to attempt to use the materials.");
+        System.out.println("Choose one material you would like to use:");
+        System.out.println(" ");
+
+        System.out.println("1. Excalibur");
+        System.out.println("2. Annihilator");
+        System.out.println("3. Toxic Device");
+        System.out.println("4. Poisonous Smoke");
+        System.out.println("5. Poisoned Syringe");
+
+        System.out.println(" ");
+
+        System.out.print("Enter your choice (1-5): ");
+        while (!input.hasNextInt()) {
+            System.out.println("Invalid input, please enter a number.");
+            input.next();
+            System.out.print("Enter your choice (1-5): ");
+        }
+        int materialChoice = input.nextInt();
+
+        switch (materialChoice) {
+            // EXCALIBUR
+            case 1:
+                System.out.println(" ");
+                System.out.println("=================================================");
+                System.out.println("         You have chosen the Excalibur!");
+                System.out.println("=================================================");
+                System.out.println(" ");
+                System.out.println("To wield the Excalibur, you must meet the following\nconditions:");
+                System.out.println(" ");
+                System.out.println("1. You must be a Warrior class.");
+                System.out.println("2. You must have 70 hp.");
+                System.out.println("3. You must have the Talisman.");
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+
+                System.out.println("Would you like to attempt to wield the Excalibur? (yes/no): ");
+
+                String attemptSword = input.next();
+
+                if (attemptSword.equalsIgnoreCase("yes")) {
+
+                    if (role == 1 && potionClass == 3 && lootChoice == 5) {
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                        System.out.println("You have successfully wielded the Excalibur!");
+                        System.out.println(" ");
+                        System.out.println("The Excalibur has defeated the Zombie King!");
+                        System.out.println(" ");
+                        System.out.println("Congratulations! You have saved humanity!");
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+
+                    } else {
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                        System.out.println(" ");
+                        System.out.println("You do not meet the conditions to wield the \nExcalibur.");
+                        System.out.println("The Zombie King has defeated you and your party.");
+                        System.out.println("Once again, humanity has lost its hope...");
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                    }
+
+                } else {
                     System.out.println(" ");
-                    System.out.println("=================================================");
-                    System.out.println("       You have chosen the Poisoned Syringe!     ");
-                    System.out.println("=================================================");
-                    System.out.println("To use the Poisoned Syringe, you must meet the\n following conditions:");
+                    System.out.println("-------------------------------------------------");
+                    System.out.println("You have chosen not to attempt to wield the \nLegendary Sword.");
+                    System.out.println("The Zombie King has defeated you and your party.");
                     System.out.println(" ");
-                    System.out.println("1. You must be a Medic class.");
-                    System.out.println("2. You must have 120 hp.");
-                    System.out.println("3. You must have the Mystery Syringe, if you gave \nthe Mystery Syringe to other survivor, you will not be able to use it.");
+                    System.out.println("Once again, humanity has lost its hope....");
                     System.out.println(" ");
-                    System.out.println("Would you like to attempt to use the Poisoned Syringe? (yes/no): ");
+                    System.out.println("-------------------------------------------------");
+                }
+                break;
 
-                    String attemptSyringe = input.next();
+            // ANNIHILATOR
+            case 2:
+                System.out.println(" ");
+                System.out.println("=================================================");
+                System.out.println("       You have chosen the Annihilator!");
+                System.out.println("=================================================");
+                System.out.println(" ");
+                System.out.println("To use the Annihilator, you must meet the \nfollowing conditions:");
+                System.out.println(" ");
+                System.out.println("1. You must be a Cowboy class.");
+                System.out.println("2. You must have 50 hp.");
+                System.out.println("3. You must have the Gun Powder.");
+                System.out.println(" ");
+                System.out.println("Would you like to attempt to use the Annihilator? (yes/no): ");
 
-                    if (attemptSyringe.equalsIgnoreCase("yes")) {
+                String attemptGun = input.next();
 
-                        if (role == 3 &&
-                            potionClass == 2 &&
-                            lootChoice == 3 &&
-                            syringeChoice == "give") {
-
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                            System.out.println(" ");
-                            System.out.println("You have successfully used the Poisoned Syringe!");
-                            System.out.println("\nThe Poisoned Syringe has defeated the Zombie King!");
-                            System.out.println(" ");
-                            System.out.println("Congratulations! You have saved humanity!");
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-
-                        } else {
-
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                            System.out.println(" ");
-                            System.out.println( "You do not meet the conditions to use the Poisoned\nSyringe.");
-                            System.out.println( "The Zombie King has defeated you and your party.");
-                            System.out.println(" ");
-                            System.out.println( "Once again, humanity has lost its hope...");
-                            System.out.println(" ");
-                            System.out.println("-------------------------------------------------");
-                        }
+                if (attemptGun.equalsIgnoreCase("yes")) {
+                    if (role == 2 && potionClass == 4 && lootChoice == 4) {
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                        System.out.println(" ");
+                        System.out.println("You have successfully used the Annihilator!");
+                        System.out.println("The Annihilator has defeated the Zombie King!");
+                        System.out.println(" ");
+                        System.out.println("Congratulations! You have saved humanity!");
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
 
                     } else {
 
                         System.out.println(" ");
                         System.out.println("-------------------------------------------------");
                         System.out.println(" ");
-                        System.out.println("You have chosen not to attempt to use the Poisoned\n Syringe.");
-                        System.out.println("\nThe Zombie King has defeated you and your party.");
+                        System.out.println("You do not meet the conditions to use the Annihilator.");
+                        System.out.println("The Zombie King has defeated you and your party.");
                         System.out.println(" ");
-                        System.out.println(   "Once again, humanity has lost its hope...");
+                        System.out.println("Once again, humanity has lost its hope.....");
                         System.out.println(" ");
                         System.out.println("-------------------------------------------------");
                     }
 
-                    break;
-
-                default:
-
+                } else {
                     System.out.println(" ");
                     System.out.println("-------------------------------------------------");
                     System.out.println(" ");
-                    System.out.println("Invalid choice. The Zombie King has defeated you \band your party.");
+                    System.out.println("You have chosen not to attempt to use the Annihilator.");
+                    System.out.println("The Zombie King has defeated you and your party.");
                     System.out.println(" ");
                     System.out.println("Once again, humanity has lost its hope...");
                     System.out.println(" ");
                     System.out.println("-------------------------------------------------");
-            }
+                }
+                break;
+
+         
+            // TOXIC DEVICE
+            case 3:
+                System.out.println(" ");
+                System.out.println("=================================================");
+                System.out.println("      You have chosen the Toxic Device!");
+                System.out.println("=================================================");
+                System.out.println(" ");
+                System.out.println("To use the Toxic Device, you must meet the \nfollowing conditions:");
+                System.out.println(" ");
+                System.out.println("1. You must be an Engineer class.");
+                System.out.println("2. You must have 100 hp.");
+                System.out.println("3. You must have the Metal Scraps.");
+                System.out.println(" ");
+                System.out.println("Would you like to attempt to use the Toxic Device? (yes/no): ");
+
+                String attemptDevice = input.next();
+
+                if (attemptDevice.equalsIgnoreCase("yes")) {
+
+                    if (role == 4 && potionClass == 1 && lootChoice == 1) {
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                        System.out.println(" ");
+                        System.out.println("You have successfully used the Toxic Device!");
+                        System.out.println("\nThe Toxic Device has defeated the Zombie King!");
+                        System.out.println(" ");
+                        System.out.println("Congratulations! You have saved humanity!");
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+
+                    } else {
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                        System.out.println(" ");
+                        System.out.println("You do not meet the conditions to use the Toxic Device.");
+                        System.out.println("\nThe Zombie King has defeated you and your party.");
+                        System.out.println(" ");
+                        System.out.println("Once again, humanity has lost its hope...");
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                    }
+
+                } else {
+                    System.out.println(" ");
+                    System.out.println("-------------------------------------------------");
+                    System.out.println(" ");
+                    System.out.println("You have chosen not to attempt to use the Toxic Device.");
+                    System.out.println("\nThe Zombie King has defeated you and your party.");
+                    System.out.println(" ");
+                    System.out.println("Once again, humanity has lost its hope...");
+                    System.out.println(" ");
+                    System.out.println("-------------------------------------------------");
+                }
+                break;
+
+            // POISONOUS SMOKE
+            case 4:
+                System.out.println(" ");
+                System.out.println("=================================================");
+                System.out.println("       You have chosen the Poisonous Smoke!      ");
+                System.out.println("=================================================");
+                System.out.println(" ");
+                System.out.println("To use the Poisonous Smoke, you must meet the \nfollowing conditions:");
+                System.out.println(" ");
+                System.out.println("1. You must be a Scientist class.");
+                System.out.println("2. You must have 80 hp.");
+                System.out.println("3. You must have the Mask.");
+                System.out.println(" ");
+                System.out.println("Would you like to attempt to use the Poisonous Smoke? (yes/no): ");
+
+                String attemptSmoke = input.next();
+
+                if (attemptSmoke.equalsIgnoreCase("yes")) {
+                    if (role == 5 && potionClass == 5 && lootChoice == 2) {
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                        System.out.println(" ");
+                        System.out.println("You have successfully used the Poisonous Smoke!");
+                        System.out.println("\nThe Poisonous Smoke has defeated the Zombie King!");
+                        System.out.println(" ");
+                        System.out.println("Congratulations! You have saved humanity!");
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+
+                    } else {
+                        System.out.println("-------------------------------------------------");
+                        System.out.println(" ");
+                        System.out.println("You do not meet the conditions to use the Poisonous\n Smoke.");
+                        System.out.println(  "\nThe Zombie King has defeated you and your party.");
+                        System.out.println(" ");
+                        System.out.println("Once again, humanity has lost its hope...");
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                    }
+
+                } else {
+                    System.out.println(" ");
+                    System.out.println("-------------------------------------------------");
+                    System.out.println(" ");
+                    System.out.println("You have chosen not to attempt to use the Poisonous\n Smoke.");
+                    System.out.println("The Zombie King has defeated you and your party.");
+                    System.out.println(" ");
+                    System.out.println("Once again, humanity has lost its hope...");
+                    System.out.println(" ");
+                    System.out.println("-------------------------------------------------");
+                }
+                break;
+
+    
+            // POISONED SYRINGE
+            case 5:
+                System.out.println(" ");
+                System.out.println("=================================================");
+                System.out.println("       You have chosen the Poisoned Syringe!     ");
+                System.out.println("=================================================");
+                System.out.println("To use the Poisoned Syringe, you must meet the\n following conditions:");
+                System.out.println(" ");
+                System.out.println("1. You must be a Medic class.");
+                System.out.println("2. You must have 120 hp.");
+                System.out.println("3. You must have the Mystery Syringe, if you gave \nthe Mystery Syringe to other survivor, you will not be able to use it.");
+                System.out.println(" ");
+                System.out.println("Would you like to attempt to use the Poisoned Syringe? (yes/no): ");
+
+                String attemptSyringe = input.next();
+                if (attemptSyringe.equalsIgnoreCase("yes")) {
+                    if (role == 3 && potionClass == 2 && lootChoice == 3 && syringeChoice.equals("save")) {
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                        System.out.println(" ");
+                        System.out.println("You have successfully used the Poisoned Syringe!");
+                        System.out.println("\nThe Poisoned Syringe has defeated the Zombie King!");
+                        System.out.println(" ");
+                        System.out.println("Congratulations! You have saved humanity!");
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+
+                    } else {
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                        System.out.println(" ");
+                        System.out.println( "You do not meet the conditions to use the Poisoned\nSyringe.");
+                        System.out.println( "The Zombie King has defeated you and your party.");
+                        System.out.println(" ");
+                        System.out.println( "Once again, humanity has lost its hope...");
+                        System.out.println(" ");
+                        System.out.println("-------------------------------------------------");
+                    }
+
+                } else {
+                    System.out.println(" ");
+                    System.out.println("-------------------------------------------------");
+                    System.out.println(" ");
+                    System.out.println("You have chosen not to attempt to use the Poisoned\n Syringe.");
+                    System.out.println("\nThe Zombie King has defeated you and your party.");
+                    System.out.println(" ");
+                    System.out.println(   "Once again, humanity has lost its hope...");
+                    System.out.println(" ");
+                    System.out.println("-------------------------------------------------");
+                }
+                break;
+
+            default:
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+                System.out.println(" ");
+                System.out.println("Invalid choice. The Zombie King has defeated you \band your party.");
+                System.out.println(" ");
+                System.out.println("Once again, humanity has lost its hope...");
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
         }
     }
+
+    return attemptMaterial;
+}
 
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-        title(); //first scene or like introductory
+        title(); //introductory
 
         String name = identification(input); //player info
 
