@@ -829,39 +829,60 @@ public static String bossFight(Scanner input, int role, int potionClass, int loo
                     potionClass,
                     lootChoice,
                     syringeChoice);
-      
+
+                System.out.println(" ");
+                System.out.println(" ");   
                 System.out.println("-------------------------------------------------"); 
                 System.out.println("Your journey has come to an end..."); 
-                System.out.println(); 
+                System.out.println(""); 
                 System.out.println("But this is not necessarily your final fate."); 
-                System.out.println(); 
+                System.out.println(""); 
                 System.out.println("[1] Go Back in Time"); 
                 System.out.println("[2] Reincarnate"); 
                 System.out.print("Choose your fate: "); 
+                System.out.println(" ");
+                
                 fate = input.nextInt(); 
         }
 
             if (fate == 1) // go back in time
                 { 
-                System.out.println(); 
-                System.out.println("You chose to go back in time."); 
+                System.out.println(" ");
+                System.out.println(" "); 
+                System.out.println("=================================================");
+                System.out.println("           You chose to Go back in Time.         "); 
+                System.out.println("=================================================");
+                System.out.println(" ");
                 System.out.println("The clock turns backward..."); 
-                System.out.println("You are given another chance to change your fate.");    
+                System.out.println("You are given another chance to change your fate."); 
+                System.out.println(" "); 
+                System.out.println("-------------------------------------------------");
                 main(args);
         }   
             else if (fate == 2)  // reincarnate
                 {  
-                System.out.println(); 
-                System.out.println("You chose to reincarnate."); 
+                System.out.println(" "); 
+                System.out.println(" ");
+                System.out.println("=================================================");
+                System.out.println("           You chose to Reincarnate.             "); 
+                System.out.println("=================================================");
+                System.out.println(" ");
                 System.out.println("Your current life fades away..."); 
                 System.out.println("A new life begins in a world still threatened by the outbreak."); 
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+                System.out.println(" ");
+                System.out.println(" ");
+
                 main(args); 
         }            
             else            // other
                 {       
                 System.out.println(); 
+                System.out.println("-------------------------------------------------");
                 System.out.println("You have chosen to accept your fate."); 
                 System.out.println("The story ends here.");  
+                System.out.println("-------------------------------------------------");
     }
         input.close();
     }
