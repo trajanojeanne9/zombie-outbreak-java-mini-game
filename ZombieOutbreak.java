@@ -373,13 +373,57 @@ public class ZombieOutbreakFinal{
         return lootChoice;
     }
 
+    //WARRIOR SIDE QUEST
+    public static void warriorScenario(Scanner input, int roleChoice, int potionClass, int lootChoice) {
+        String talismanChoice = "";
+        if (roleChoice == 1 && lootChoice == 5) {
+            System.out.println(" ");
+            System.out.println("-------------------------------------------------");
+            System.out.println(" ");
+            System.out.println("\nAs you continue forward, you encounter a child that is battered and asking for help.");
+            System.out.println("You still have the Talisman. It might be of help to him.");
+            System.out.println(" ");
+            System.out.println("-------------------------------------------------");
+            System.out.println(" ");
+            System.out.println("Would you like to use the Talisman to help him? (yes/no): ");
+
+            talismanChoice = input.next();
+            if (talismanChoice.trim().isEmpty() || (!talismanChoice.equalsIgnoreCase("yes") && !talismanChoice.equalsIgnoreCase("no"))) {
+                System.out.println(" ");
+                System.out.println(" ");
+                System.out.println(" ");
+                System.out.println("INPUT CANNOT BE EMPTY! Please enter 'yes' or 'no'.");
+                warriorScenario(input, roleChoice, potionClass, lootChoice);
+                return;
+            }
+
+            if (talismanChoice.equalsIgnoreCase("yes")) {
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+                System.out.println(" ");
+                System.out.println("[You use the Talisman to help the child. He is saved and thank you for your bravery.]");
+                System.out.println("[However, you no longer have the Talisman for what lies ahead]");
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+
+            } else {
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+                System.out.println(" ");
+                System.out.println("[You decide not to use the Talisman. The child's cries fade behind you as you press on.]");
+                System.out.println("[You continue forward, but you hear distant screams. You cannot help him as you have no means to do so]");
+                System.out.println("[You press on, hoping to find a way to save humanity]");
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+            }
+        }
+    }
+
     // MEDIC SIDE QUEST
     public static String survivorScenario(Scanner input, int roleChoice, int potionClass, int lootChoice) {
-
         String syringeChoice = "";
 
         if (roleChoice == 3 && lootChoice == 3) {
-            
             System.out.println(" ");
             System.out.println("-------------------------------------------------");
             System.out.println(" ");
@@ -421,6 +465,52 @@ public class ZombieOutbreakFinal{
             }
         }
         return syringeChoice;
+    }
+
+    // ENGINEER SIDE QUEST
+    public static void engineerScenario(Scanner input, int roleChoice, int potionClass, int lootChoice) {
+        String bridgeChoice = "";
+        if (roleChoice == 4 && lootChoice == 1) {
+            System.out.println(" ");
+            System.out.println("-------------------------------------------------");
+            System.out.println(" ");
+            System.out.println("\nAs you continue forward, you encounter a broken bridge that \nblocks your path. You still have the Metal Scraps.");
+            System.out.println("It might be able to repair the bridge and allow you to \ncontinue forward.");
+            System.out.println(" ");
+            System.out.println("-------------------------------------------------");
+            System.out.println(" ");
+            System.out.println("Would you like to use the Metal Scraps to repair the bridge? (yes/no): ");
+
+            bridgeChoice = input.next();
+            if (bridgeChoice.trim().isEmpty() || (!bridgeChoice.equalsIgnoreCase("yes") && !bridgeChoice.equalsIgnoreCase("no"))) {
+                System.out.println(" ");
+                System.out.println(" ");
+                System.out.println(" ");
+                System.out.println("INPUT CANNOT BE EMPTY! Please enter 'yes' or 'no'.");
+                engineerScenario(input, roleChoice, potionClass, lootChoice);
+                return;
+            }
+
+            if (bridgeChoice.equalsIgnoreCase("yes")) {
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+                System.out.println(" ");
+                System.out.println("[You use the Metal Scraps to repair the bridge. You can now \ncontinue forward and face the challenges ahead.]");
+                System.out.println("[However, you no longer have the Metal Scraps for what lies ahead]");
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+
+            } else {
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+                System.out.println(" ");
+                System.out.println("[You decide not to use the Metal Scraps. The broken bridge \nblocks your path and you must find another way forward.]");
+                System.out.println("[You continue forward, but you hear distant screams. You cannot \nhelp them as you have no means to do so]");
+                System.out.println("[You press on, hoping to find a way to save humanity]");
+                System.out.println(" ");
+                System.out.println("-------------------------------------------------");
+            }
+        }
     }
 
    //BOSS FIGHT
